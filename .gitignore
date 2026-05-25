@@ -14,3 +14,6 @@ Corrida Colegial.pck
 Corrida Colegial.wasm
 Corrida Colegial.js
 Corrida Colegial.html
+
+# Editor plugins (baixe separadamente em https://github.com/godotengine/godot-git-plugin)
+addons/godot-git-plugin/
