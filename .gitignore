@@ -1,3 +1,16 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Godot generated import files and metadata
+*.import
+.import/
+
+# Godot temporary scene/editor files
+*.tmp
+
+# Export/build artifacts (use only if you do not want to version generated builds)
+# Corrida Colegial.pck
+# Corrida Colegial.wasm
+# Corrida Colegial.js
+# Corrida Colegial.html
