@@ -1,125 +1,88 @@
 # 🎓 Corrida Colegial
 
-> Um jogo de plataforma 2D desenvolvido no **Godot 4.6** como projeto colegial — enfrente inimigos, colete moedas e tente tirar a melhor nota da prova final!
+> Um jogo de plataforma 2D ágil e desafiador desenvolvido na **Godot Engine 4** — enfrente inimigos, colete moedas e gerencie seu tempo para não ser reprovado na Prova Final!
 
 ---
 
 ## 🎮 Sobre o Jogo
 
-**Corrida Colegial** é um jogo de plataforma 2D com pixel art onde você controla o **Melo**, um estudante em uma corrida contra o tempo através de fases repletas de obstáculos e inimigos.
+**Corrida Colegial** é um jogo de plataforma 2D com estética pixel art focado em velocidade e precisão. O jogador controla o **Melo**, um cachorro antropomórfico determinado que acabou se atrasando para a faculdade. Preocupado em perder a avaliação mais importante do semestre, ele decide correr da sua casa até o campus universitário.
 
-Ao final das fases, você recebe uma **nota de 0 a 10** baseada no seu desempenho — coletando moedas, derrotando inimigos, tomando pouco dano e terminando rápido. Cada morte e cada hit contam!
+Ao final da jornada, o jogador passa por um "boletim" que exibe uma **Nota de 0.0 a 10.0** baseada estritamente no seu desempenho operacional ao longo de todo o percurso.
 
 ---
 
 ## 🕹️ Controles
 
-| Ação | Tecla |
-|---|---|
-| Mover para a esquerda | ← (Seta Esquerda) |
-| Mover para a direita | → (Seta Direita) |
-| Pular | ↑ (Seta Cima) |
-| Atacar (Soco) | `Espaço` |
-| Reiniciar (tela final) | `Espaço` |
-| Sair (tela final) | `Esc` |
+O jogo foi projetado para ser controlado exclusivamente via teclado:
+
+| Contexto       | Ação                            | Tecla                  |
+| :------------- | :------------------------------ | :--------------------- |
+| **Gameplay**   | Mover para a Esquerda           | `←` ou `Seta Esquerda` |
+| **Gameplay**   | Mover para a Direita            | `→` ou `Seta Direita`  |
+| **Gameplay**   | Pular (Controle de altura)      | `↑` ou `Seta Cima`     |
+| **Gameplay**   | Atacar (Soco)                   | `Barra de Espaço`      |
+| **Tela Final** | Reiniciar o Jogo (Reset Global) | `Barra de Espaço`      |
+| **Tela Final** | Sair do Jogo Imediatamente      | `Tecla Esc`            |
 
 ---
 
-## 📊 Sistema de Nota
+## ⚙️ Sistemas de Elite e Mecânicas
 
-A nota final é calculada com base em:
+### 📊 Lógica de Nota e Penalidades Permanentes
 
-| Fator | Efeito |
-|---|---|
-| 🪙 Moeda coletada | +50 pontos |
-| 💀 Inimigo derrotado | +150 pontos |
-| ☠️ Morte do jogador | −100 pontos |
-| 💢 Hit recebido | −25 pontos |
-| ⏱️ Tempo de jogo | −1 ponto por segundo |
+A pontuação final é calculada de forma dinâmica através do Singleton `Global`. O sistema premia os objetivos cumpridos, mas pune severamente os erros cometidos pelo jogador (cujas punições acumuladas **não são perdoadas** ao voltar para um checkpoint):
 
-> A pontuação é convertida para escala de **0.0 a 10.0** ao final.  
-> Nota mínima garantida: **0.0** (nunca fica negativa).
+- 🪙 **Moeda Coletada:** +50 pontos
+- 💀 **Inimigo Derrotado:** +150 pontos
+- ⏱️ **Tempo de Jogo:** −1 ponto por segundo decorrido
+- 💢 **Dano Recebido (Hit):** −25 pontos por golpe sofrido
+- ☠️ **Morte do Jogador:** −100 pontos por reinicialização
+
+A pontuação bruta é processada através de uma trava de segurança que impede notas negativas, sendo convertida para a escala acadêmica:
+
+$$PontosFinais = \max(0, (Moedas \times 50) + (Inimigos \times 150) - (Mortes \times 100) - (Danos \times 25) - Tempo)$$
+
+$$NotaFinal = \min\left(10.0, \frac{PontosFinais}{1000.0}\right)$$
+
+### 🛡️ Mecânica de Checkpoint Anti-Farming
+
+Para impedir que o jogador trapaceie morrendo de propósito para eliminar o mesmo inimigo repetidamente, o jogo utiliza um sistema de "fotos" de progresso. Ao cruzar o portal de uma área, o estado seguro das moedas e abates é salvo. Caso o Melo perca todas as vidas, o jogo limpa os dados daquela tentativa fracassada e restaura apenas o progresso legítimo obtido até o início da fase.
 
 ---
 
-## 🗺️ Fases
+## 🗺️ Estrutura de Fases
 
-- **Cutscene** — Introdução narrativa
-- **Fase 1** — Apresentação dos controles e primeiros inimigos
-- **Fase 2** — Dificuldade crescente
-- **Fase 3** — Desafio final
-- **Cena Final** — Boletim com sua nota
+O jogo se desenrola em um nível contínuo dividido em três zonas temáticas de transição imediata:
+
+1. **Cutscene Inicial:** Introdução em vídeo contextualizando o atraso do Melo.
+2. **Área Rural:** Início da corrida, composta por bastante vegetação e árvores.
+3. **Área Periférica:** Zona intermediária com pouca vegetação e pequenas construções.
+4. **Área Urbana:** Desafio final em uma cidade movimentada e repleta de obstáculos que leva ao campus.
+5. **Cena Final:** Tela de vitória com o boletim descritivo e o cálculo da nota final.
 
 ---
 
 ## 👾 Inimigos
 
-- **Boi** — Patrulha uma área, causa dano por contato direto com o Melo
-- **Pombo** — Atira projéteis (`pombo_bala`) na direção do jogador
+- **Fazendeiros (Bois):** Habitam a Área Rural. Patrulham trechos curtos do chão e causam dano por contato físico. Só podem ser derrotados com socos.
+- **Bandidos (Pombos):** Presentes nas Áreas Periférica e Urbana. Ficam estáticos e disparam projéteis (`pombo_bala`) contra o jogador. Podem ser derrotados com socos ou pulando em suas cabeças (o que concede um impulso vertical extra).
 
 ---
 
-## ⚙️ Tecnologias
+## 🛠️ Especificações Técnicas
 
-- **Engine:** [Godot 4.6](https://godotengine.org/) — GL Compatibility
+- **Engine:** Godot Engine 4 (Configuração de renderização: _GL Compatibility_)
 - **Linguagem:** GDScript
-- **Plataforma de export:** Web (HTML5) e Windows Desktop
-- **Física 3D:** Jolt Physics (configuração de engine)
-- **Áudio:** AudioStreamPlayer centralizado via singleton `Global`
+- **Arquitetura de Áudio:** Gerenciador centralizado em nó global persistente (_Autoload_) controlando um `AudioStreamPlayer` a -12.0 dB, garantindo a transição limpa entre a música tema da gameplay e a faixa de vitória (`musica win.mp3`).
 
 ---
 
-## 🗂️ Estrutura do Projeto
+## 🚀 Como Rodar o Projeto
 
+1. Certifique-se de ter a **Godot Engine 4** instalada em sua máquina.
+2. Clone este repositório:
+
+```bash
+   git clone [https://github.com/LeoneoVasques/Corrida-Colegial.git](https://github.com/LeoneoVasques/Corrida-Colegial.git)
 ```
-corrida-colegial/
-├── Global.gd              # Singleton: vidas, moedas, checkpoints, nota
-├── melo.gd                # Script do personagem principal
-├── boi.gd                 # Script do inimigo Boi
-├── pombo.gd               # Script do inimigo Pombo
-├── cena_final.gd          # Tela de boletim com nota final
-├── menu_principal.gd      # Menu inicial
-├── hud.gd                 # Interface durante o jogo (HUD)
-├── Fase 1.tscn            # Cena da Fase 1
-├── Fase 2.tscn            # Cena da Fase 2
-├── Fase 3.tscn            # Cena da Fase 3
-├── sons/                  # Trilha sonora e efeitos
-├── personagens/           # Sprites dos personagens
-├── cenários/              # Tilesets e fundos
-├── interface/             # Assets de UI
-├── itens/                 # Moedas e itens coletáveis
-└── videos/                # Cutscenes em vídeo
-```
-
----
-
-## 🚀 Como Rodar
-
-### Pré-requisitos
-- [Godot 4.6](https://godotengine.org/download) instalado
-
-### Passos
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/LeoneoVasques/Corrida-Colegial.git
-   ```
-2. Abra o **Godot 4.6**
-3. Clique em **"Import"** e selecione o arquivo `project.godot`
-4. Pressione **F5** para rodar o projeto
-
----
-
-## 📝 Observações
-
-- O plugin `godot-git-plugin` utilizado durante o desenvolvimento **não está incluído** neste repositório. Baixe separadamente em [godotengine/godot-git-plugin](https://github.com/godotengine/godot-git-plugin) caso queira usá-lo.
-- Os arquivos de export Web (`.pck`, `.wasm`, `.html`, `.js`) são gerados pelo Godot e não estão versionados.
-
----
-
-## 👨‍💻 Autores
-
-Desenvolvido como projeto colegial.
-
----
-
-*Feito com ❤️ e Godot 4*
