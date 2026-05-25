@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://bm5v6mqoik7x6"]
+
+[ext_resource type="Texture2D" uid="uid://bhufa4pkwcw83" path="res://cenários/5.jpg" id="1_7cppl"]
+[ext_resource type="PackedScene" uid="uid://cdbq2rqwiwrp8" path="res://hud.tscn" id="2_4q4fm"]
+[ext_resource type="FontFile" uid="uid://ckachrfs0omr8" path="res://pixel.ttf" id="4_s5jfo"]
+[ext_resource type="PackedScene" uid="uid://c8bpy66j7ksw6" path="res://Pombo.tscn" id="5_4q4fm"]
+[ext_resource type="PackedScene" uid="uid://dpi5kfghkl77k" path="res://melo.tscn" id="6_rbdxm"]
+[ext_resource type="PackedScene" uid="uid://dlvv2yuoa5jj1" path="res://boi.tscn" id="7_1knca"]
+[ext_resource type="Script" uid="uid://b4riwqhqq4xub" path="res://portal2.gd" id="7_vcnfv"]
+[ext_resource type="PackedScene" uid="uid://dp5ecwi3cp7vr" path="res://moeda.tscn" id="8_37a5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l4uo"]
+size = Vector2(10717.777, 232.27774)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a08td"]
+size = Vector2(356.6667, 1570.6001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85b7u"]
+size = Vector2(351.6663, 1771.1112)
+
+[node name="Node2D" type="Node2D" unique_id=1504722045]
+position = Vector2(0, 662.27)
+scale = Vector2(0.45, 0.45)
+
+[node name="Cenário" type="StaticBody2D" parent="." unique_id=2032802121]
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenário" unique_id=1487532121]
+position = Vector2(5204.4443, -769.48895)
+texture = ExtResource("1_7cppl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenário" unique_id=1900072869]
+position = Vector2(5112.223, -182.82224)
+shape = SubResource("RectangleShape2D_0l4uo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cenário" unique_id=1486957632]
+position = Vector2(-186.66669, -798.37787)
+shape = SubResource("RectangleShape2D_a08td")
+
+[node name="HUD" parent="." unique_id=473832507 instance=ExtResource("2_4q4fm")]
+
+[node name="Melo" parent="." unique_id=2040787868 instance=ExtResource("6_rbdxm")]
+position = Vector2(266.66663, -493.9334)
+
+[node name="LimiteEsquerdo" type="Marker2D" parent="." unique_id=1183826473]
+position = Vector2(-11.111112, -1531.7112)
+
+[node name="Moeda" parent="." unique_id=1086308374 instance=ExtResource("8_37a5v")]
+position = Vector2(1068.8889, -418.3779)
+
+[node name="Moeda2" parent="." unique_id=238728584 instance=ExtResource("8_37a5v")]
+position = Vector2(1344.4445, -418.3779)
+
+[node name="Moeda3" parent="." unique_id=1852594638 instance=ExtResource("8_37a5v")]
+position = Vector2(1620, -418.3779)
+
+[node name="Moeda5" parent="." unique_id=33970313 instance=ExtResource("8_37a5v")]
+position = Vector2(2466.6667, -460.6)
+rotation = 1.49515
+
+[node name="Moeda6" parent="." unique_id=2136168219 instance=ExtResource("8_37a5v")]
+position = Vector2(3406.667, -460.6)
+rotation = 1.49515
+
+[node name="Moeda7" parent="." unique_id=1694762560 instance=ExtResource("8_37a5v")]
+position = Vector2(5204.4443, -451.71112)
+rotation = 1.49515
+
+[node name="Moeda11" parent="." unique_id=1014092675 instance=ExtResource("8_37a5v")]
+position = Vector2(9235.557, -380.6)
+rotation = 1.49515
+
+[node name="Moeda8" parent="." unique_id=1171990344 instance=ExtResource("8_37a5v")]
+position = Vector2(6013.3335, -453.93332)
+rotation = 1.49515
+
+[node name="Moeda9" parent="." unique_id=1337776170 instance=ExtResource("8_37a5v")]
+position = Vector2(6017.7783, -605.04443)
+rotation = 1.49515
+
+[node name="Moeda10" parent="." unique_id=1685255251 instance=ExtResource("8_37a5v")]
+position = Vector2(7668.8896, -447.26663)
+rotation = 1.49515
+
+[node name="LimiteDireito" type="Marker2D" parent="." unique_id=801158665]
+position = Vector2(10424.445, -2.8222656)
+
+[node name="Pombo2" parent="." unique_id=191389475 instance=ExtResource("5_4q4fm")]
+position = Vector2(6617.7783, -411.7112)
+
+[node name="Pombo4" parent="." unique_id=1497865339 instance=ExtResource("5_4q4fm")]
+position = Vector2(8704.444, -393.93344)
+
+[node name="Pombo3" parent="." unique_id=1557250480 instance=ExtResource("5_4q4fm")]
+position = Vector2(3560.0002, -422.82233)
+
+[node name="Boi" parent="." unique_id=2107165246 instance=ExtResource("7_1knca")]
+position = Vector2(2124.4446, -513.9334)
+
+[node name="Boi2" parent="." unique_id=258528971 instance=ExtResource("7_1knca")]
+position = Vector2(4600, -482.8223)
+
+[node name="Boi3" parent="." unique_id=1181962216 instance=ExtResource("7_1knca")]
+position = Vector2(7453.3335, -482.8223)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1310761315]
+script = ExtResource("7_vcnfv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=197336229]
+position = Vector2(10157.778, -718.3778)
+shape = SubResource("RectangleShape2D_85b7u")
+
+[node name="TransicaoHUD" type="CanvasLayer" parent="Area2D" unique_id=1717868077]
+visible = false
+
+[node name="FundoPreto" type="ColorRect" parent="Area2D/TransicaoHUD" unique_id=1577321014]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextoFase" type="Label" parent="Area2D/TransicaoHUD" unique_id=721988111]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -36.0
+offset_right = 86.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_s5jfo")
+theme_override_font_sizes/font_size = 40
+text = "Fase 3"
+horizontal_alignment = 1
+vertical_alignment = 1

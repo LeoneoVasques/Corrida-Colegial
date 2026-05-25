@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://c8bpy66j7ksw6"]
+
+[ext_resource type="Script" uid="uid://ddv8gxtmc66pt" path="res://pombo.gd" id="1_eo84k"]
+[ext_resource type="Texture2D" uid="uid://dcpxa5rf2sd87" path="res://personagens/pombo ciscando.png" id="2_lgycs"]
+[ext_resource type="Texture2D" uid="uid://dosaw1p2dlwrs" path="res://personagens/pombo sacando.png" id="3_lgycs"]
+[ext_resource type="Texture2D" uid="uid://byagbnvcuk1v1" path="res://personagens/pombo atirando.png" id="4_tlbdg"]
+[ext_resource type="Texture2D" uid="uid://c0rsenwwkilyp" path="res://personagens/pombo morrendo.png" id="5_0klv5"]
+[ext_resource type="AudioStream" uid="uid://d3k6m1rh5tvd7" path="res://sons/inimigo morrendo.mp3" id="6_yoi1v"]
+[ext_resource type="AudioStream" uid="uid://2sqjjujd6e0d" path="res://sons/som arma.mp3" id="7_3dsgj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lgycs"]
+radius = 155.00008
+height = 467.50034
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0klv5"]
+size = Vector2(340.0002, 442.50024)
+
+[sub_resource type="Animation" id="Animation_0klv5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCiscando:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteSacando:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteAtirando:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteMorrendo:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_eo84k"]
+resource_name = "atirando"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteAtirando:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.23333333, 0.33333334, 0.43333334, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"executar_disparo"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tlbdg"]
+resource_name = "PomboParado"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCiscando:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.6666667, 0.73333335, 0.8, 0.8666667, 0.93333334, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_lgycs"]
+resource_name = "morrendo"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteMorrendo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.19999999, 0.23333335, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 6, 7, 8, 9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_yoi1v"]
+resource_name = "sacando_arma"
+length = 0.96666664
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteSacando:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.13333334, 0.2, 0.3, 0.36666667, 0.46666667, 0.56666666, 0.6666667, 0.76666665, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yoi1v"]
+_data = {
+&"RESET": SubResource("Animation_0klv5"),
+&"atirando": SubResource("Animation_eo84k"),
+&"ciscando": SubResource("Animation_tlbdg"),
+&"morrendo": SubResource("Animation_lgycs"),
+&"sacando_arma": SubResource("Animation_yoi1v")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eo84k"]
+size = Vector2(4665.003, 1616.2505)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlbdg"]
+size = Vector2(370.0005, 106.09384)
+
+[node name="Pombo" type="CharacterBody2D" unique_id=1497865339]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_eo84k")
+
+[node name="SpriteCiscando" type="Sprite2D" parent="." unique_id=369895839]
+texture = ExtResource("2_lgycs")
+vframes = 13
+
+[node name="SpriteSacando" type="Sprite2D" parent="." unique_id=1506014268]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("3_lgycs")
+vframes = 13
+
+[node name="SpriteAtirando" type="Sprite2D" parent="." unique_id=1196507364]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("4_tlbdg")
+vframes = 11
+
+[node name="SpriteMorrendo" type="Sprite2D" parent="." unique_id=798451456]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("5_0klv5")
+vframes = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=15205499]
+position = Vector2(-42.500004, 2.4999962)
+scale = Vector2(0.99999946, 0.99999946)
+shape = SubResource("CapsuleShape2D_lgycs")
+
+[node name="AreaContato" type="Area2D" parent="." unique_id=1632499646]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaContato" unique_id=844318856]
+position = Vector2(-39.999985, 18.749962)
+scale = Vector2(0.9999991, 0.9999991)
+shape = SubResource("RectangleShape2D_0klv5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=178193837]
+libraries/ = SubResource("AnimationLibrary_yoi1v")
+
+[node name="TimerTiro" type="Timer" parent="." unique_id=1129611299]
+autostart = true
+
+[node name="PontoTiro" type="Marker2D" parent="." unique_id=2132114763]
+position = Vector2(-257.545, -39.405)
+
+[node name="AreaRange" type="Area2D" parent="." unique_id=2110647786]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaRange" unique_id=1384967971]
+position = Vector2(-24.999996, -537.49994)
+scale = Vector2(0.9999992, 0.9999992)
+shape = SubResource("RectangleShape2D_eo84k")
+
+[node name="AreaCabeca" type="Area2D" parent="." unique_id=451697496]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCabeca" unique_id=866940482]
+position = Vector2(-37.49999, -222.49986)
+scale = Vector2(0.99999857, 0.99999857)
+shape = SubResource("RectangleShape2D_tlbdg")
+
+[node name="SomMorte" type="AudioStreamPlayer2D" parent="." unique_id=146797639]
+position = Vector2(39.999996, -52.499996)
+stream = ExtResource("6_yoi1v")
+
+[node name="SomTiro" type="AudioStreamPlayer2D" parent="." unique_id=188624225]
+stream = ExtResource("7_3dsgj")
+
+[connection signal="body_entered" from="AreaContato" to="." method="_on_area_contato_body_entered"]
+[connection signal="timeout" from="TimerTiro" to="." method="_on_timer_tiro_timeout"]
+[connection signal="body_entered" from="AreaRange" to="." method="_on_area_range_body_entered"]
+[connection signal="body_exited" from="AreaRange" to="." method="_on_area_range_body_exited"]
+[connection signal="body_entered" from="AreaCabeca" to="." method="_on_area_cabeca_body_entered"]

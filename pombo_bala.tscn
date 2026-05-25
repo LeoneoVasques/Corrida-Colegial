@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://pkx8qy4lda8g"]
+
+[ext_resource type="Script" uid="uid://1pcjv316fb8m" path="res://pombo_bala.gd" id="1_2s722"]
+[ext_resource type="Texture2D" uid="uid://b56yqhthrifcj" path="res://itens/bala.png" id="2_sumne"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpi6h"]
+radius = 9.0
+height = 58.0
+
+[node name="PomboBala" type="Area2D" unique_id=2060153288]
+z_index = 10
+script = ExtResource("1_2s722")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=531106000]
+rotation = 1.5707964
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_sumne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=357507056]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qpi6h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=847578879]
+rect = Rect2(-10, -14, 20, 29)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

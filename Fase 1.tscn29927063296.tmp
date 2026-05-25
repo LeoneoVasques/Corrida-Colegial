@@ -1,0 +1,263 @@
+[gd_scene format=3 uid="uid://cvler2hmespt6"]
+
+[ext_resource type="Texture2D" uid="uid://i1a1724ktkww" path="res://cenários/4.jpg" id="1_0l4uo"]
+[ext_resource type="Script" uid="uid://cijsg6vo22ric" path="res://melo.gd" id="2_0l4uo"]
+[ext_resource type="Texture2D" uid="uid://dnqk3whhibgdq" path="res://personagens/melo (2).png" id="3_0l4uo"]
+[ext_resource type="Texture2D" uid="uid://drlwermhf2xa8" path="res://personagens/melo (3).png" id="3_a08td"]
+[ext_resource type="Texture2D" uid="uid://dwv8my0xl5u50" path="res://personagens/melo (4).png" id="5_85b7u"]
+[ext_resource type="AudioStream" uid="uid://clroal3xedf1a" path="res://sons/SomDano.mp3" id="6_7y2td"]
+[ext_resource type="Script" uid="uid://dnltbp1mk1bll" path="res://hud.gd" id="6_pfx4b"]
+[ext_resource type="PackedScene" uid="uid://dlvv2yuoa5jj1" path="res://boi.tscn" id="7_3rjco"]
+[ext_resource type="Texture2D" uid="uid://nwqlx5eavpuj" path="res://itens/639053099223234324.png" id="7_7y2td"]
+[ext_resource type="Texture2D" uid="uid://i2oomfnqyg7m" path="res://itens/coracao.png" id="7_s1oi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l4uo"]
+size = Vector2(10717.777, 232.27774)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85b7u"]
+size = Vector2(351.6663, 1771.1112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a08td"]
+size = Vector2(356.6667, 1570.6001)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a08td"]
+radius = 62.222214
+height = 222.22229
+
+[sub_resource type="Animation" id="Animation_0l4uo"]
+resource_name = "Correr"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteCorrer:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3, 0.39999998, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_a08td"]
+resource_name = "Parado"
+length = 0.53333336
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteParado:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333336, 0.19999999, 0.26666668, 0.33333334, 0.4, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 6, 5]
+}
+
+[sub_resource type="Animation" id="Animation_85b7u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteParado:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteCorrer:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteSoco:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_pfx4b"]
+resource_name = "atacar"
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteSoco:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 0, 1, 2, 3, 6, 4, 5, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85b7u"]
+_data = {
+&"Correr": SubResource("Animation_0l4uo"),
+&"Parado": SubResource("Animation_a08td"),
+&"RESET": SubResource("Animation_85b7u"),
+&"atacar": SubResource("Animation_pfx4b")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rjco"]
+size = Vector2(115.55553, 22.222282)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rm5p"]
+
+[node name="Node2D" type="Node2D" unique_id=1504722045]
+position = Vector2(0, 662.27)
+scale = Vector2(0.45, 0.45)
+
+[node name="Cenário" type="StaticBody2D" parent="." unique_id=539845308]
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenário" unique_id=1487532121]
+position = Vector2(5204.4443, -769.48895)
+texture = ExtResource("1_0l4uo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenário" unique_id=1900072869]
+position = Vector2(5112.223, -182.82224)
+shape = SubResource("RectangleShape2D_0l4uo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cenário" unique_id=197336229]
+position = Vector2(9499.723, -746.15546)
+shape = SubResource("RectangleShape2D_85b7u")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cenário" unique_id=1486957632]
+position = Vector2(-186.66669, -798.37787)
+shape = SubResource("RectangleShape2D_a08td")
+
+[node name="Melo" type="CharacterBody2D" parent="." unique_id=1957329161]
+script = ExtResource("2_0l4uo")
+
+[node name="SpriteParado" type="Sprite2D" parent="Melo" unique_id=887497879]
+position = Vector2(626.6666, -451.7111)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("3_a08td")
+vframes = 7
+
+[node name="SpriteCorrer" type="Sprite2D" parent="Melo" unique_id=1276213535]
+position = Vector2(626.6666, -449.48895)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("3_0l4uo")
+vframes = 7
+
+[node name="SpriteSoco" type="Sprite2D" parent="Melo" unique_id=1542129850]
+position = Vector2(626.66675, -451.71118)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_85b7u")
+vframes = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Melo" unique_id=1322933633]
+position = Vector2(624.44446, -449.48892)
+shape = SubResource("CapsuleShape2D_a08td")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Melo" unique_id=1384807165]
+libraries/ = SubResource("AnimationLibrary_85b7u")
+
+[node name="Camera2D" type="Camera2D" parent="Melo" unique_id=1765998655]
+position = Vector2(1286.6667, -736.15564)
+zoom = Vector2(1.165, 1.165)
+limit_left = 0
+limit_top = -16
+limit_right = 4661
+limit_bottom = 652
+limit_smoothed = true
+position_smoothing_speed = 50.0
+
+[node name="AtaqueArea" type="Area2D" parent="Melo" unique_id=94681929]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Melo/AtaqueArea" unique_id=862712113]
+position = Vector2(746.6667, -456.15546)
+shape = SubResource("RectangleShape2D_3rjco")
+
+[node name="SomDano" type="AudioStreamPlayer2D" parent="Melo" unique_id=827543053]
+stream = ExtResource("6_7y2td")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1171837053]
+script = ExtResource("6_pfx4b")
+
+[node name="Control" type="Control" parent="HUD" unique_id=1083021628]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -10.0
+offset_right = -3.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxMoedas" type="HBoxContainer" parent="HUD/Control" unique_id=2021460822]
+layout_mode = 0
+offset_left = 1060.14
+offset_top = 26.285
+offset_right = 1125.1404
+offset_bottom = 86.28502
+
+[node name="IconeMoeda" type="TextureRect" parent="HUD/Control/HBoxMoedas" unique_id=1082555551]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("7_7y2td")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextoMoedas" type="Label" parent="HUD/Control/HBoxMoedas" unique_id=133896416]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_8rm5p")
+
+[node name="HBoxCoracoes" type="HBoxContainer" parent="HUD/Control" unique_id=812767975]
+layout_mode = 0
+offset_left = 40.305
+offset_top = -202.66
+offset_right = 560.305
+offset_bottom = 309.34
+
+[node name="Coracao1" type="TextureRect" parent="HUD/Control/HBoxCoracoes" unique_id=2142557858]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+texture = ExtResource("7_s1oi4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao2" type="TextureRect" parent="HUD/Control/HBoxCoracoes" unique_id=1850722436]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("7_s1oi4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao3" type="TextureRect" parent="HUD/Control/HBoxCoracoes" unique_id=1402993341]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("7_s1oi4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Boi" parent="." unique_id=2107165246 instance=ExtResource("7_3rjco")]
+position = Vector2(1777.7778, -465.0445)
+
+[connection signal="body_entered" from="Melo/AtaqueArea" to="Melo" method="_on_ataque_area_body_entered"]

@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://cvler2hmespt6"]
+
+[ext_resource type="Texture2D" uid="uid://i1a1724ktkww" path="res://cenários/4.jpg" id="1_0l4uo"]
+[ext_resource type="PackedScene" uid="uid://dpi5kfghkl77k" path="res://melo.tscn" id="2_pfx4b"]
+[ext_resource type="FontFile" uid="uid://ckachrfs0omr8" path="res://pixel.ttf" id="4_nml88"]
+[ext_resource type="Script" uid="uid://dnltbp1mk1bll" path="res://hud.gd" id="6_pfx4b"]
+[ext_resource type="PackedScene" uid="uid://dlvv2yuoa5jj1" path="res://boi.tscn" id="7_3rjco"]
+[ext_resource type="Texture2D" uid="uid://nwqlx5eavpuj" path="res://itens/639053099223234324.png" id="7_7y2td"]
+[ext_resource type="PackedScene" uid="uid://dp5ecwi3cp7vr" path="res://moeda.tscn" id="7_nml88"]
+[ext_resource type="Texture2D" uid="uid://i2oomfnqyg7m" path="res://itens/coracao.png" id="7_s1oi4"]
+[ext_resource type="Script" uid="uid://dh7iu7bduqpjq" path="res://portal.gd" id="9_s1oi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l4uo"]
+size = Vector2(10717.777, 232.27774)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a08td"]
+size = Vector2(356.6667, 1570.6001)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rm5p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85b7u"]
+size = Vector2(351.6663, 1146.6667)
+
+[node name="Node2D" type="Node2D" unique_id=1504722045]
+position = Vector2(0, 662.27)
+scale = Vector2(0.45, 0.45)
+
+[node name="Cenário" type="StaticBody2D" parent="." unique_id=539845308]
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenário" unique_id=1487532121]
+position = Vector2(5204.4443, -769.48895)
+texture = ExtResource("1_0l4uo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenário" unique_id=1900072869]
+position = Vector2(5112.223, -182.82224)
+shape = SubResource("RectangleShape2D_0l4uo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cenário" unique_id=1486957632]
+position = Vector2(-186.66669, -798.37787)
+shape = SubResource("RectangleShape2D_a08td")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1171837053]
+script = ExtResource("6_pfx4b")
+
+[node name="Control" type="Control" parent="HUD" unique_id=1083021628]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = -12.0
+offset_right = 74.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxMoedas" type="HBoxContainer" parent="HUD/Control" unique_id=2021460822]
+layout_mode = 0
+offset_left = 958.77
+offset_top = 59.975
+offset_right = 1023.7703
+offset_bottom = 119.975044
+
+[node name="IconeMoeda" type="TextureRect" parent="HUD/Control/HBoxMoedas" unique_id=1082555551]
+self_modulate = Color(1, 1, 1, 0.39215687)
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("7_7y2td")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextoMoedas" type="Label" parent="HUD/Control/HBoxMoedas" unique_id=133896416]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_nml88")
+theme_override_font_sizes/font_size = 32
+label_settings = SubResource("LabelSettings_8rm5p")
+
+[node name="HBoxCoracoes" type="HBoxContainer" parent="HUD/Control" unique_id=812767975]
+layout_mode = 0
+offset_left = -29.06
+offset_top = -174.62
+offset_right = 490.94
+offset_bottom = 337.38
+
+[node name="Coracao1" type="TextureRect" parent="HUD/Control/HBoxCoracoes" unique_id=2142557858]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+texture = ExtResource("7_s1oi4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao2" type="TextureRect" parent="HUD/Control/HBoxCoracoes" unique_id=1850722436]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("7_s1oi4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao3" type="TextureRect" parent="HUD/Control/HBoxCoracoes" unique_id=1402993341]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("7_s1oi4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Boi" parent="." unique_id=2107165246 instance=ExtResource("7_3rjco")]
+position = Vector2(1777.7778, -465.0445)
+
+[node name="Boi2" parent="." unique_id=1933427829 instance=ExtResource("7_3rjco")]
+position = Vector2(3011.1113, -471.71118)
+
+[node name="Boi3" parent="." unique_id=138291124 instance=ExtResource("7_3rjco")]
+position = Vector2(4182.2227, -467.26672)
+
+[node name="Boi4" parent="." unique_id=764063753 instance=ExtResource("7_3rjco")]
+position = Vector2(6524.4443, -456.1556)
+
+[node name="Boi6" parent="." unique_id=2027735503 instance=ExtResource("7_3rjco")]
+position = Vector2(8420, -433.93338)
+
+[node name="Boi5" parent="." unique_id=829004871 instance=ExtResource("7_3rjco")]
+position = Vector2(6835.5557, -458.37784)
+
+[node name="Melo" parent="." unique_id=2040787868 instance=ExtResource("2_pfx4b")]
+position = Vector2(717.7779, -456.15558)
+
+[node name="LimiteEsquerdo" type="Marker2D" parent="." unique_id=1183826473]
+position = Vector2(-11.111112, -1531.7112)
+
+[node name="Moeda" parent="." unique_id=1086308374 instance=ExtResource("7_nml88")]
+position = Vector2(115.55556, -409.489)
+
+[node name="Moeda2" parent="." unique_id=1966696811 instance=ExtResource("7_nml88")]
+position = Vector2(1413.3333, -409.489)
+
+[node name="Moeda3" parent="." unique_id=1739079462 instance=ExtResource("7_nml88")]
+position = Vector2(2231.1113, -409.489)
+
+[node name="Moeda4" parent="." unique_id=189663212 instance=ExtResource("7_nml88")]
+position = Vector2(2548.889, -409.489)
+
+[node name="Moeda5" parent="." unique_id=417438810 instance=ExtResource("7_nml88")]
+position = Vector2(5135.5557, -409.489)
+
+[node name="Moeda6" parent="." unique_id=1332792934 instance=ExtResource("7_nml88")]
+position = Vector2(5400, -409.489)
+
+[node name="Moeda7" parent="." unique_id=1073806988 instance=ExtResource("7_nml88")]
+position = Vector2(5271.112, -589.489)
+
+[node name="Moeda8" parent="." unique_id=224423088 instance=ExtResource("7_nml88")]
+position = Vector2(7688.8887, -576.1557)
+
+[node name="LimiteDireito" type="Marker2D" parent="." unique_id=801158665]
+position = Vector2(10424.445, -2.8222656)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1310761315]
+script = ExtResource("9_s1oi4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=197336229]
+position = Vector2(9499.723, -878.37775)
+shape = SubResource("RectangleShape2D_85b7u")
+
+[node name="TransicaoHUD" type="CanvasLayer" parent="Area2D" unique_id=2112699765]
+visible = false
+
+[node name="FundoPreto" type="ColorRect" parent="Area2D/TransicaoHUD" unique_id=567410672]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextoFase" type="Label" parent="Area2D/TransicaoHUD" unique_id=2106622738]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -36.0
+offset_right = 86.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_nml88")
+theme_override_font_sizes/font_size = 40
+text = "Fase 2"
+horizontal_alignment = 1
+vertical_alignment = 1

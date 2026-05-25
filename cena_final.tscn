@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cjiqj41aspai8"]
+
+[ext_resource type="Script" uid="uid://dr636simphr5c" path="res://cena_final.gd" id="1_sqkuw"]
+[ext_resource type="Texture2D" uid="uid://cstl36cus1t2n" path="res://interface/imagem final.jpg" id="2_v73j3"]
+[ext_resource type="FontFile" uid="uid://ckachrfs0omr8" path="res://pixel.ttf" id="3_v73j3"]
+
+[sub_resource type="Animation" id="Animation_v73j3"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qk0sa"]
+_data = {
+&"new_animation": SubResource("Animation_v73j3")
+}
+
+[node name="CenaFinal" type="Control" unique_id=460823787]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sqkuw")
+
+[node name="FundoMeloProva" type="TextureRect" parent="." unique_id=1065750171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v73j3")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=882527280]
+layout_mode = 0
+offset_left = 517.0
+offset_top = -42.0
+offset_right = 568.1826
+offset_bottom = -2.0
+scale = Vector2(13.344379, 6.4116287)
+color = Color(0, 0, 0, 0.63529414)
+
+[node name="FormulasDecorativas" type="Control" parent="." unique_id=2023947965]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PainelResultado" type="VBoxContainer" parent="." unique_id=766393487]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 58.0
+offset_right = 951.0
+offset_bottom = 197.0
+
+[node name="TextoMoedas" type="Label" parent="PainelResultado" unique_id=1918517012]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_v73j3")
+theme_override_font_sizes/font_size = 16
+
+[node name="TextoInimigos" type="Label" parent="PainelResultado" unique_id=1400560119]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_v73j3")
+theme_override_font_sizes/font_size = 16
+
+[node name="TextoNotaFinal" type="Label" parent="PainelResultado" unique_id=40513548]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_v73j3")
+theme_override_font_sizes/font_size = 24
+
+[node name="TextoInstrucaoRecomencar" type="Label" parent="." unique_id=823473279]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 302.0
+offset_top = 545.0
+offset_right = 887.0
+offset_bottom = 593.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("3_v73j3")
+theme_override_font_sizes/font_size = 26
+text = "Aperte ESPAcO para recomecar"
+
+[node name="TextoInstrucaoSair" type="Label" parent="." unique_id=545660494]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 33.0
+offset_top = 26.0
+offset_right = 618.0
+offset_bottom = 74.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_v73j3")
+theme_override_font_sizes/font_size = 20
+text = "Aperte ESC para sair"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2084899345]
+libraries/ = SubResource("AnimationLibrary_qk0sa")

@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cdbq2rqwiwrp8"]
+
+[ext_resource type="Script" uid="uid://dnltbp1mk1bll" path="res://hud.gd" id="1_640wx"]
+[ext_resource type="Texture2D" uid="uid://nwqlx5eavpuj" path="res://itens/639053099223234324.png" id="2_a2258"]
+[ext_resource type="FontFile" uid="uid://ckachrfs0omr8" path="res://pixel.ttf" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://i2oomfnqyg7m" path="res://itens/coracao.png" id="4_rftc2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8rm5p"]
+
+[node name="HUD" type="CanvasLayer" unique_id=473832507]
+script = ExtResource("1_640wx")
+
+[node name="Control" type="Control" parent="." unique_id=95592836]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = -12.0
+offset_right = 74.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxMoedas" type="HBoxContainer" parent="Control" unique_id=2000429619]
+layout_mode = 0
+offset_left = 958.77
+offset_top = 59.975
+offset_right = 1023.7703
+offset_bottom = 119.975044
+
+[node name="IconeMoeda" type="TextureRect" parent="Control/HBoxMoedas" unique_id=1783696447]
+self_modulate = Color(1, 1, 1, 0.39215687)
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("2_a2258")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextoMoedas" type="Label" parent="Control/HBoxMoedas" unique_id=214940298]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_1xsix")
+theme_override_font_sizes/font_size = 32
+label_settings = SubResource("LabelSettings_8rm5p")
+
+[node name="HBoxCoracoes" type="HBoxContainer" parent="Control" unique_id=499267987]
+layout_mode = 0
+offset_left = -29.06
+offset_top = -174.62
+offset_right = 490.94
+offset_bottom = 337.38
+
+[node name="Coracao1" type="TextureRect" parent="Control/HBoxCoracoes" unique_id=1864017323]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+texture = ExtResource("4_rftc2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao2" type="TextureRect" parent="Control/HBoxCoracoes" unique_id=527775234]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_rftc2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Coracao3" type="TextureRect" parent="Control/HBoxCoracoes" unique_id=1525025198]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("4_rftc2")
+expand_mode = 1
+stretch_mode = 5

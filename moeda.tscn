@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dp5ecwi3cp7vr"]
+
+[ext_resource type="Script" uid="uid://dpy0acqssbmj6" path="res://moeda.gd" id="1_bce4n"]
+[ext_resource type="Texture2D" uid="uid://nwqlx5eavpuj" path="res://itens/639053099223234324.png" id="2_kpn3i"]
+[ext_resource type="AudioStream" uid="uid://bxus0cdgahmlc" path="res://sons/SomMoeda.mp3" id="3_yr5fv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4x05f"]
+radius = 113.03982
+
+[node name="Moeda" type="Area2D" unique_id=1086308374]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_bce4n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1306630029]
+texture = ExtResource("2_kpn3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1559728976]
+shape = SubResource("CircleShape2D_4x05f")
+
+[node name="SomMoeda" type="AudioStreamPlayer2D" parent="." unique_id=592815582]
+stream = ExtResource("3_yr5fv")

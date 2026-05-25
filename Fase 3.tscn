@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://b2kt8n3xsjonx"]
+
+[ext_resource type="Texture2D" uid="uid://cscde7vo2tkq6" path="res://cenários/6.jpg" id="1_6u8kd"]
+[ext_resource type="PackedScene" uid="uid://cdbq2rqwiwrp8" path="res://hud.tscn" id="2_j0kdr"]
+[ext_resource type="PackedScene" uid="uid://dpi5kfghkl77k" path="res://melo.tscn" id="3_mm1hs"]
+[ext_resource type="PackedScene" uid="uid://dp5ecwi3cp7vr" path="res://moeda.tscn" id="4_ydp6v"]
+[ext_resource type="PackedScene" uid="uid://c8bpy66j7ksw6" path="res://Pombo.tscn" id="5_nui3p"]
+[ext_resource type="Script" uid="uid://bdl5cn87r4abp" path="res://portal3.gd" id="6_t8e5y"]
+[ext_resource type="FontFile" uid="uid://ckachrfs0omr8" path="res://pixel.ttf" id="7_t8e5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l4uo"]
+size = Vector2(10717.777, 232.27774)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a08td"]
+size = Vector2(356.6667, 1570.6001)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85b7u"]
+size = Vector2(351.6663, 1771.1112)
+
+[node name="Node2D" type="Node2D" unique_id=1504722045]
+position = Vector2(0, 662.27)
+scale = Vector2(0.45, 0.45)
+
+[node name="Cenário" type="StaticBody2D" parent="." unique_id=2032802121]
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenário" unique_id=1487532121]
+position = Vector2(5204.4443, -769.48895)
+texture = ExtResource("1_6u8kd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenário" unique_id=1900072869]
+position = Vector2(5112.223, -36.155567)
+shape = SubResource("RectangleShape2D_0l4uo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cenário" unique_id=1486957632]
+position = Vector2(-186.66669, -798.37787)
+shape = SubResource("RectangleShape2D_a08td")
+
+[node name="HUD" parent="." unique_id=473832507 instance=ExtResource("2_j0kdr")]
+
+[node name="Melo" parent="." unique_id=2040787868 instance=ExtResource("3_mm1hs")]
+position = Vector2(266.66663, -271.71118)
+
+[node name="LimiteEsquerdo" type="Marker2D" parent="." unique_id=1183826473]
+position = Vector2(-11.111112, -1531.7112)
+
+[node name="Moeda" parent="." unique_id=1086308374 instance=ExtResource("4_ydp6v")]
+position = Vector2(797.77783, -291.71124)
+
+[node name="Moeda2" parent="." unique_id=865243878 instance=ExtResource("4_ydp6v")]
+position = Vector2(1097.7778, -291.71124)
+
+[node name="Moeda3" parent="." unique_id=1742484635 instance=ExtResource("4_ydp6v")]
+position = Vector2(1400.0001, -291.71124)
+
+[node name="Moeda6" parent="." unique_id=2136168219 instance=ExtResource("4_ydp6v")]
+position = Vector2(5459.9995, -280.59985)
+rotation = 1.49515
+
+[node name="Moeda7" parent="." unique_id=1694762560 instance=ExtResource("4_ydp6v")]
+position = Vector2(4975.5557, -276.15555)
+rotation = 1.49515
+
+[node name="Moeda8" parent="." unique_id=1171990344 instance=ExtResource("4_ydp6v")]
+position = Vector2(5220.0005, -285.04443)
+rotation = 1.49515
+
+[node name="Moeda9" parent="." unique_id=711769455 instance=ExtResource("4_ydp6v")]
+position = Vector2(5220.0005, -456.15558)
+rotation = 1.49515
+
+[node name="Moeda11" parent="." unique_id=457322464 instance=ExtResource("4_ydp6v")]
+position = Vector2(7668.8896, -293.93344)
+rotation = 1.49515
+
+[node name="Moeda12" parent="." unique_id=651193974 instance=ExtResource("4_ydp6v")]
+position = Vector2(8295.556, -289.48898)
+rotation = 1.49515
+
+[node name="Moeda13" parent="." unique_id=2077963045 instance=ExtResource("4_ydp6v")]
+position = Vector2(8993.333, -296.1558)
+rotation = 1.49515
+
+[node name="Moeda14" parent="." unique_id=895423952 instance=ExtResource("4_ydp6v")]
+position = Vector2(8993.333, -296.1558)
+rotation = 1.49515
+
+[node name="Moeda10" parent="." unique_id=1685255251 instance=ExtResource("4_ydp6v")]
+position = Vector2(7664.445, -445.04446)
+rotation = 1.49515
+
+[node name="LimiteDireito" type="Marker2D" parent="." unique_id=801158665]
+position = Vector2(10424.445, -2.8222656)
+
+[node name="Pombo2" parent="." unique_id=191389475 instance=ExtResource("5_nui3p")]
+position = Vector2(6617.7783, -382.82233)
+
+[node name="Pombo4" parent="." unique_id=1497865339 instance=ExtResource("5_nui3p")]
+position = Vector2(8257.777, -431.7112)
+
+[node name="Pombo10" parent="." unique_id=1989138657 instance=ExtResource("5_nui3p")]
+position = Vector2(8688.889, -422.82233)
+
+[node name="Pombo11" parent="." unique_id=10623994 instance=ExtResource("5_nui3p")]
+position = Vector2(9104.444, -422.82233)
+
+[node name="Pombo12" parent="." unique_id=1594568558 instance=ExtResource("5_nui3p")]
+position = Vector2(5666.6665, -629.489)
+
+[node name="Pombo3" parent="." unique_id=1557250480 instance=ExtResource("5_nui3p")]
+position = Vector2(1693.3336, -262.82233)
+
+[node name="Pombo5" parent="." unique_id=1467563022 instance=ExtResource("5_nui3p")]
+position = Vector2(2320, -302.82233)
+
+[node name="Pombo6" parent="." unique_id=1892663209 instance=ExtResource("5_nui3p")]
+position = Vector2(2988.889, -316.15564)
+
+[node name="Pombo7" parent="." unique_id=922406916 instance=ExtResource("5_nui3p")]
+position = Vector2(3877.778, -342.82233)
+
+[node name="Pombo8" parent="." unique_id=1886244216 instance=ExtResource("5_nui3p")]
+position = Vector2(4415.5557, -322.82233)
+
+[node name="Pombo9" parent="." unique_id=760784181 instance=ExtResource("5_nui3p")]
+position = Vector2(4708.889, -333.9334)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1310761315]
+script = ExtResource("6_t8e5y")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D" unique_id=197336229]
+position = Vector2(10233.334, -718.3778)
+shape = SubResource("RectangleShape2D_85b7u")
+
+[node name="TransicaoHUD" type="CanvasLayer" parent="Area2D" unique_id=403158863]
+visible = false
+
+[node name="FundoPreto" type="ColorRect" parent="Area2D/TransicaoHUD" unique_id=263294307]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextoFase" type="Label" parent="Area2D/TransicaoHUD" unique_id=61127268]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -36.0
+offset_right = 86.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("7_t8e5y")
+theme_override_font_sizes/font_size = 40
+text = "parabens!"
+horizontal_alignment = 1
+vertical_alignment = 1
